@@ -1,9 +1,29 @@
+using System;
 using Xunit;
 
 namespace DependencyAnalyzer.UnitTests
 {
     public class DependencyAnalysisTests
     {
+        private static DependencyAnalyzerSteps CreateSteps() => new DependencyAnalyzerSteps();
+
+        [Fact]
+        public void Returns_target_assembly_details()
+        {
+            using (var steps = CreateSteps())
+            {
+                steps.GivenWorkingDirectory("C:\\Dir");
+                steps.GivenTargetAssembly("Alpha.Bravo", "1.2", "Alpha.Bravo.dll");
+                steps.WhenAssemblyIsAnalysed();
+                steps.ThenAssemblyNameIs("Alpha.Bravo");
+                steps.ThenAssemblyFileNameIs("Alpha.Bravo.dll");
+                steps.ThenAssemblyFullPathIs("C:\\Dir\\Alpha.Bravo.dll");
+                steps.ThenAssemblyVersionIs(new Version(1, 2));
+            }
+        }
+
+
+
         /*
          * Returns target assembly details
          * Finds target assembly with path relative to working dir
