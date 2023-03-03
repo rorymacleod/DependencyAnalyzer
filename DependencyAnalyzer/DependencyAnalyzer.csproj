@@ -41,13 +41,23 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="TestableIO.System.IO.Abstractions, Version=19.0.0.0, Culture=neutral, PublicKeyToken=96bf224d23c43e59, processorArchitecture=MSIL">
+      <HintPath>..\packages\TestableIO.System.IO.Abstractions.19.1.14\lib\net461\TestableIO.System.IO.Abstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalysisResult.cs" />
+    <Compile Include="Analyzer.cs" />
+    <Compile Include="Reflection\AssemblyInfo.cs" />
+    <Compile Include="Reflection\FileSystemReflectionLoader.cs" />
+    <Compile Include="Reflection\IAssemblyLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
